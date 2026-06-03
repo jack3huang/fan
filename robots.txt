@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /admin.html
+Disallow: /admin-server.js
+Disallow: /scripts/
+
+Sitemap: https://www.mockingjaytech.com/sitemap.xml

@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OEM / ODM Services | Mockingjay Tech — Custom Fan Manufacturing</title>
+  <meta name="description" content="Full OEM/ODM fan customization from Mockingjay Tech — custom colors, private label packaging, firmware, mold design. MOQ 500 pcs. CE certified. Factory direct from Shenzhen.">
+  <link rel="canonical" href="https://www.mockingjaytech.com/oem.html">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="OEM / ODM Fan Manufacturing | Mockingjay Tech">
+  <meta property="og:image" content="https://www.mockingjaytech.com/media/og-cover.jpg">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230A1628'/><text y='.9em' font-size='80' x='10'>🌀</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css?v=20260601">
+  <style>
+    /* ─── OEM Page Styles ─── */
+    .oem-hero { padding: 100px 0 80px; text-align: center; position: relative; overflow: hidden; }
+    .oem-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(34,211,238,0.08) 0%, transparent 60%); pointer-events: none; }
+    .oem-hero-eyebrow { display: inline-flex; align-items: center; gap: 8px; background: rgba(34,211,238,0.08); border: 1px solid rgba(34,211,238,0.25); border-radius: 100px; padding: 6px 16px; font-size: 0.8125rem; color: var(--ice); margin-bottom: 24px; }
+    .oem-hero h1 { font-family: var(--font-d); font-size: clamp(2rem,5vw,3.5rem); color: var(--white); margin-bottom: 20px; }
+    .oem-hero h1 span { background: linear-gradient(135deg, var(--ice), var(--blue)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .oem-hero p { color: var(--text-muted); font-size: 1.125rem; max-width: 600px; margin: 0 auto 40px; line-height: 1.7; }
+    .oem-hero-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .oem-hero-badges { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; margin-top: 48px; }
+    .oem-hero-badge { display: flex; align-items: center; gap: 8px; color: var(--text-muted); font-size: 0.875rem; }
+    .oem-hero-badge-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--ice); }
+
+    .oem-options { padding: 80px 0; }
+    .oem-options h2 { font-family: var(--font-d); font-size: clamp(1.5rem,3vw,2.25rem); color: var(--white); margin-bottom: 12px; text-align: center; }
+    .oem-options-sub { color: var(--text-muted); text-align: center; margin-bottom: 48px; }
+    .oem-options-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .oem-option-card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 32px 28px; transition: border-color 0.3s, transform 0.3s; }
+    .oem-option-card:hover { border-color: var(--ice-dim); transform: translateY(-6px); }
+    .oem-option-card.featured { border-color: rgba(34,211,238,0.4); background: linear-gradient(135deg, rgba(34,211,238,0.05), rgba(59,130,246,0.05)); }
+    .oem-option-icon { font-size: 36px; margin-bottom: 16px; }
+    .oem-option-name { font-family: var(--font-d); font-size: 1.125rem; color: var(--white); margin-bottom: 12px; }
+    .oem-option-desc { color: var(--text-muted); font-size: 0.875rem; line-height: 1.7; margin-bottom: 16px; }
+    .oem-option-items { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .oem-option-items li { color: var(--text-muted); font-size: 0.8125rem; display: flex; align-items: center; gap: 8px; }
+    .oem-option-items li::before { content: '✓'; color: var(--ice); font-weight: 700; flex-shrink: 0; }
+
+    .oem-process { padding: 80px 0; background: var(--card); border-top: 1px solid var(--border); }
+    .oem-process h2 { font-family: var(--font-d); font-size: clamp(1.5rem,3vw,2.25rem); color: var(--white); margin-bottom: 48px; text-align: center; }
+    .process-steps { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; position: relative; }
+    .process-steps::before { content: ''; position: absolute; top: 28px; left: 10%; right: 10%; height: 2px; background: linear-gradient(to right, var(--ice), var(--blue)); z-index: 0; }
+    .process-step { text-align: center; position: relative; z-index: 1; padding: 0 8px; }
+    .process-step-num { width: 56px; height: 56px; border-radius: 50%; background: var(--bg); border: 2px solid var(--ice); display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; font-family: var(--font-d); font-size: 1.125rem; font-weight: 800; color: var(--ice); }
+    .process-step-name { color: var(--white); font-weight: 600; font-size: 0.875rem; margin-bottom: 8px; }
+    .process-step-desc { color: var(--text-muted); font-size: 0.75rem; line-height: 1.5; }
+
+    .oem-moq { padding: 80px 0; }
+    .oem-moq h2 { font-family: var(--font-d); font-size: clamp(1.5rem,3vw,2.25rem); color: var(--white); margin-bottom: 48px; text-align: center; }
+    .moq-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .moq-card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 32px 28px; text-align: center; transition: border-color 0.3s; }
+    .moq-card.highlight { border-color: rgba(34,211,238,0.5); background: linear-gradient(135deg, rgba(34,211,238,0.06), rgba(59,130,246,0.06)); }
+    .moq-badge { display: inline-block; background: rgba(34,211,238,0.1); color: var(--ice); font-size: 0.75rem; font-weight: 600; padding: 4px 12px; border-radius: 100px; margin-bottom: 16px; }
+    .moq-label { color: var(--text-muted); font-size: 0.8125rem; margin-bottom: 8px; }
+    .moq-qty { font-family: var(--font-d); font-size: 2.25rem; font-weight: 800; color: var(--white); margin-bottom: 4px; }
+    .moq-unit { color: var(--text-muted); font-size: 0.8125rem; margin-bottom: 20px; }
+    .moq-features { list-style: none; text-align: left; display: flex; flex-direction: column; gap: 8px; }
+    .moq-features li { color: var(--text-muted); font-size: 0.875rem; display: flex; gap: 8px; align-items: flex-start; }
+    .moq-features li::before { content: '✓'; color: var(--ice); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+    .oem-showcase { padding: 80px 0; background: var(--card); border-top: 1px solid var(--border); }
+    .oem-showcase h2 { font-family: var(--font-d); font-size: clamp(1.5rem,3vw,2.25rem); color: var(--white); margin-bottom: 48px; text-align: center; }
+    .showcase-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    .showcase-item { background: var(--bg); border: 1px solid var(--border); border-radius: 12px; aspect-ratio: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; font-size: 36px; transition: border-color 0.3s; }
+    .showcase-item:hover { border-color: var(--ice-dim); }
+    .showcase-item-label { color: var(--text-muted); font-size: 0.8125rem; }
+
+    .oem-cta { padding: 80px 0; text-align: center; background: linear-gradient(135deg, rgba(34,211,238,0.05) 0%, rgba(59,130,246,0.05) 100%); border-top: 1px solid var(--border); }
+    .oem-cta h2 { font-family: var(--font-d); font-size: clamp(1.75rem,4vw,2.75rem); color: var(--white); margin-bottom: 16px; }
+    .oem-cta p { color: var(--text-muted); font-size: 1.0625rem; max-width: 560px; margin: 0 auto 40px; line-height: 1.7; }
+    .oem-cta-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+    @media (max-width: 1024px) { .process-steps { grid-template-columns: repeat(3, 1fr); gap: 24px; } .process-steps::before { display: none; } }
+    @media (max-width: 768px) { .oem-options-grid, .moq-grid, .showcase-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 640px) { .showcase-grid { grid-template-columns: repeat(2, 1fr); } }
+  </style>
+</head>
+<body>
+
+<!-- ══ NAVIGATION ══════════════════════════════ -->
+<nav class="site-nav" role="navigation" aria-label="Main navigation">
+  <div class="cw nav-inner">
+    <a href="index.html" class="nav-logo" aria-label="Mockingjay Tech Home">
+      <div class="nav-logo-icon">M</div>
+      <div class="nav-logo-text">
+        <span class="nav-logo-name">Mockingjay Tech</span>
+        <span class="nav-logo-tag">Fan Manufacturer</span>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="category.html" class="nav-link">Products</a>      <a href="oem.html" class="nav-link active">OEM / ODM</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+      <a href="contact.html" class="nav-cta">Get a Quote</a>
+    </div>
+    <button class="nav-hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<nav class="nav-mobile" role="navigation" aria-label="Mobile navigation">
+  <a href="index.html">Home</a>
+  <a href="category.html">Products</a>  <a href="oem.html">OEM / ODM</a>
+  <a href="about.html">About Us</a>
+  <a href="contact.html">Contact</a>
+  <a href="contact.html" class="nav-cta">Get a Quote →</a>
+</nav>
+
+<!-- ══ OEM HERO ══════════════════════════════════ -->
+<section class="oem-hero">
+  <div class="cw">
+    <nav class="breadcrumb oem-breadcrumb fade-up" aria-label="Breadcrumb">
+      <a href="index.html">Home</a>
+      <span class="breadcrumb-sep">›</span>
+      <span>OEM / ODM</span>
+    </nav>
+    <div class="oem-hero-eyebrow fade-up">
+      <span>🏭</span>
+      <span>Factory Direct Customization</span>
+    </div>
+    <h1 class="fade-up">Your Brand.<br><span>Our Factory.</span></h1>
+    <p class="fade-up">From a custom color to a completely new product — we handle every step of the manufacturing process so you can focus on selling.</p>
+    <div class="oem-hero-btns fade-up">
+      <a href="contact.html?type=oem" class="btn-primary btn-lg">Start a Custom Project</a>
+      <a href="https://wa.me/13900000000" target="_blank" rel="noopener" class="btn-whatsapp btn-lg">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp Us Now
+      </a>
+    </div>
+    <div class="oem-hero-badges fade-up">
+      <div class="oem-hero-badge"><div class="oem-hero-badge-dot"></div>MOQ from 500 pcs</div>
+      <div class="oem-hero-badge"><div class="oem-hero-badge-dot"></div>15–35 day lead time</div>
+      <div class="oem-hero-badge"><div class="oem-hero-badge-dot"></div>CE certified factory</div>
+      <div class="oem-hero-badge"><div class="oem-hero-badge-dot"></div>In-house mold studio</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CUSTOMIZATION OPTIONS ════════════════════ -->
+<section class="oem-options">
+  <div class="cw">
+    <h2 class="fade-up">What Can We Customize?</h2>
+    <p class="oem-options-sub fade-up">Whether you need a simple color swap or a brand new product from scratch, we have the capability.</p>
+    <div class="oem-options-grid">
+
+      <div class="oem-option-card fade-up">
+        <div class="oem-option-icon">🎨</div>
+        <div class="oem-option-name">Color & Appearance</div>
+        <div class="oem-option-desc">Pantone color matching for housing, blades, and accessories. Matte, glossy, or soft-touch finish options.</div>
+        <ul class="oem-option-items">
+          <li>Custom Pantone colors</li>
+          <li>Dual-tone color schemes</li>
+          <li>Surface finish options</li>
+          <li>Custom blade designs</li>
+        </ul>
+      </div>
+
+      <div class="oem-option-card featured fade-up">
+        <div class="oem-option-icon">📦</div>
+        <div class="oem-option-name">Private Label Packaging</div>
+        <div class="oem-option-desc">Your brand on the box, the product, and the manual. Full retail-ready packaging from our in-house design team.</div>
+        <ul class="oem-option-items">
+          <li>Custom retail box design</li>
+          <li>Logo on product body</li>
+          <li>Multi-language user manuals</li>
+          <li>Branded gift boxes available</li>
+        </ul>
+      </div>
+
+      <div class="oem-option-card fade-up">
+        <div class="oem-option-icon">⚙️</div>
+        <div class="oem-option-name">Technical Customization</div>
+        <div class="oem-option-desc">Firmware, speed settings, battery capacity, motor specs — we can tune the product to your exact market requirements.</div>
+        <ul class="oem-option-items">
+          <li>Custom speed level count</li>
+          <li>Battery capacity options</li>
+          <li>Charging port type (USB-C / Micro)</li>
+          <li>Custom LED indicator colors</li>
+        </ul>
+      </div>
+
+      <div class="oem-option-card fade-up">
+        <div class="oem-option-icon">🔧</div>
+        <div class="oem-option-name">Mold & Structure</div>
+        <div class="oem-option-desc">For ODM projects, our in-house mold studio designs and manufactures custom housing tooling from scratch.</div>
+        <ul class="oem-option-items">
+          <li>New housing mold design</li>
+          <li>Fan blade aerodynamic tuning</li>
+          <li>Handle shape customization</li>
+          <li>Accessories and attachments</li>
+        </ul>
+      </div>
+
+      <div class="oem-option-card fade-up">
+        <div class="oem-option-icon">🔋</div>
+        <div class="oem-option-name">Power Bank Integration</div>
+        <div class="oem-option-desc">Add USB power bank output to any handheld fan model. Popular for outdoor events and sports markets.</div>
+        <ul class="oem-option-items">
+          <li>5V/2A USB-A output port</li>
+          <li>Battery size from 5000–12000mAh</li>
+          <li>Charging indicator lights</li>
+          <li>Combined fan + charger branding</li>
+        </ul>
+      </div>
+
+      <div class="oem-option-card fade-up">
+        <div class="oem-option-icon">🌡️</div>
+        <div class="oem-option-name">Special Feature Add-ons</div>
+        <div class="oem-option-desc">Request additional features to differentiate your product in the market — we assess and quote per project.</div>
+        <ul class="oem-option-items">
+          <li>Misting / water spray nozzle</li>
+          <li>Aroma diffuser insert</li>
+          <li>Built-in night light</li>
+          <li>Bluetooth speaker module</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ PROCESS ═══════════════════════════════════ -->
+<section class="oem-process">
+  <div class="cw">
+    <h2 class="fade-up">Our OEM/ODM Process</h2>
+    <div class="process-steps fade-up">
+      <div class="process-step">
+        <div class="process-step-num">01</div>
+        <div class="process-step-name">Consultation</div>
+        <div class="process-step-desc">Share your requirements — quantity, features, target market, budget. We advise the best approach.</div>
+      </div>
+      <div class="process-step">
+        <div class="process-step-num">02</div>
+        <div class="process-step-name">Quotation</div>
+        <div class="process-step-desc">Detailed quote within 24h — unit price, tooling cost (if any), sample cost, and lead time.</div>
+      </div>
+      <div class="process-step">
+        <div class="process-step-num">03</div>
+        <div class="process-step-name">Sample</div>
+        <div class="process-step-desc">Physical sample produced (3–15 days depending on complexity) for your approval before mass production.</div>
+      </div>
+      <div class="process-step">
+        <div class="process-step-num">04</div>
+        <div class="process-step-name">Production</div>
+        <div class="process-step-desc">Mass production begins after deposit confirmed. QC reports and production photos sent at each milestone.</div>
+      </div>
+      <div class="process-step">
+        <div class="process-step-num">05</div>
+        <div class="process-step-name">Delivery</div>
+        <div class="process-step-desc">Pre-shipment inspection, packing, and logistics. FOB Shenzhen or door-to-door DDP available.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ MOQ TIERS ═════════════════════════════════ -->
+<section class="oem-moq">
+  <div class="cw">
+    <h2 class="fade-up">Minimum Order Quantities</h2>
+    <div class="moq-grid">
+
+      <div class="moq-card fade-up">
+        <div class="moq-badge">Starter</div>
+        <div class="moq-label">Custom Color / Logo</div>
+        <div class="moq-qty">500</div>
+        <div class="moq-unit">units per color/style</div>
+        <ul class="moq-features">
+          <li>Standard model base</li>
+          <li>1–2 custom colors</li>
+          <li>Logo printing on product</li>
+          <li>Custom retail box</li>
+          <li>Sample in 3–5 days</li>
+        </ul>
+      </div>
+
+      <div class="moq-card highlight fade-up">
+        <div class="moq-badge">Standard OEM</div>
+        <div class="moq-label">Full OEM Package</div>
+        <div class="moq-qty">1,000</div>
+        <div class="moq-unit">units per model</div>
+        <ul class="moq-features">
+          <li>All Starter tier options</li>
+          <li>Technical customization</li>
+          <li>Custom packaging design</li>
+          <li>Multi-language manual</li>
+          <li>CE cert documentation included</li>
+          <li>Dedicated project manager</li>
+        </ul>
+      </div>
+
+      <div class="moq-card fade-up">
+        <div class="moq-badge">ODM</div>
+        <div class="moq-label">Full Product Design</div>
+        <div class="moq-qty">3,000</div>
+        <div class="moq-unit">units per model</div>
+        <ul class="moq-features">
+          <li>All OEM tier options</li>
+          <li>New mold design</li>
+          <li>Custom housing shape</li>
+          <li>Exclusive design rights</li>
+          <li>R&D partnership available</li>
+          <li>Priority production slot</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ SHOWCASE ══════════════════════════════════ -->
+<section class="oem-showcase">
+  <div class="cw">
+    <h2 class="fade-up">Customization Gallery</h2>
+    <div class="showcase-grid">
+      <div class="showcase-item fade-up">
+        <span>🟣</span><span class="showcase-item-label">Custom Purple</span>
+      </div>
+      <div class="showcase-item fade-up">
+        <span>🟢</span><span class="showcase-item-label">Custom Green</span>
+      </div>
+      <div class="showcase-item fade-up">
+        <span>🟠</span><span class="showcase-item-label">Custom Orange</span>
+      </div>
+      <div class="showcase-item fade-up">
+        <span>🔵</span><span class="showcase-item-label">Custom Blue</span>
+      </div>
+      <div class="showcase-item fade-up">
+        <span>🟡</span><span class="showcase-item-label">Custom Yellow</span>
+      </div>
+      <div class="showcase-item fade-up">
+        <span>📦</span><span class="showcase-item-label">White Label Box</span>
+      </div>
+      <div class="showcase-item fade-up">
+        <span>🏷️</span><span class="showcase-item-label">Logo Engraving</span>
+      </div>
+      <div class="showcase-item fade-up">
+        <span>🛍️</span><span class="showcase-item-label">Gift Box Set</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CTA ═══════════════════════════════════════ -->
+<section class="oem-cta">
+  <div class="cw">
+    <h2 class="fade-up">Ready to Build Your Product?</h2>
+    <p class="fade-up">Tell us your vision. We'll tell you what's possible — and quote it within 24 hours.</p>
+    <div class="oem-cta-btns fade-up">
+      <a href="contact.html?type=oem" class="btn-primary btn-lg">Start OEM/ODM Project</a>
+      <a href="https://wa.me/13900000000" target="_blank" rel="noopener" class="btn-whatsapp btn-lg">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Chat on WhatsApp
+      </a>
+      <a href="category.html" class="btn-outline btn-lg">Browse Base Products</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══════════════════════════════════ -->
+<footer class="site-footer">
+  <div class="cw footer-inner">
+    <div class="footer-brand">
+      <div class="footer-logo">
+        <div class="nav-logo-icon">M</div>
+        <span>Mockingjay Tech</span>
+      </div>
+      <p class="footer-tagline">Shenzhen's most innovative portable fan manufacturer. Factory direct with OEM/ODM capabilities.</p>
+      <div class="footer-certs">
+        <span class="cert-badge">CE Certified</span>
+        <span class="cert-badge">ISO Factory</span>
+        <span class="cert-badge">10+ Years</span>
+      </div>
+    </div>
+    <div class="footer-links">
+      <div class="footer-col">
+        <h4>Products</h4>        <a href="category.html?type=HANDHELD&name=Handheld+Fans">Handheld Fans</a>
+        <a href="category.html?type=POWERBANK&name=Power+Bank+Fans">Power Bank Fans</a>
+        <a href="category.html">All Products</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="about.html">About Us</a>
+        <a href="oem.html">OEM / ODM</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="mailto:jack3huang9@gmail.com">jack3huang9@gmail.com</a>
+        <a href="tel:13900000000">13900000000</a>
+        <a href="https://wa.me/13900000000" target="_blank" rel="noopener">WhatsApp Us</a>
+        <p class="footer-addr">Longhua, Shenzhen, China</p>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="cw">
+      <span>© 2026 Mockingjay Tech Shenzhen Co., Ltd. All rights reserved.</span>
+      <span>Factory Direct · CE Certified · OEM/ODM Available</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/data.js?v=20260601"></script>
+<script src="assets/js/script.js?v=20260601"></script>
+</body>
+</html>

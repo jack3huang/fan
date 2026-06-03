@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us | Mockingjay Tech — Shenzhen Fan Manufacturer</title>
+  <meta name="description" content="Founded in 2015, Mockingjay Tech is a Shenzhen-based portable fan manufacturer with 4,000㎡ factory, 300+ employees, CE certification, and full OEM/ODM capabilities.">
+  <link rel="canonical" href="https://www.mockingjaytech.com/about.html">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="About Mockingjay Tech — Shenzhen Fan Manufacturer">
+  <meta property="og:image" content="https://www.mockingjaytech.com/media/og-cover.jpg">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230A1628'/><text y='.9em' font-size='80' x='10'>🌀</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css?v=20260601">
+  <style>
+    /* ─── About-page specific styles ─── */
+    .about-story { padding: 80px 0; }
+    .page-header-inner > .about-hero-showcase {
+      position: absolute;
+      z-index: 1;
+      top: 34px;
+      right: 0;
+      width: min(36vw, 430px);
+      height: 290px;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid rgba(34,211,238,0.18);
+      background: rgba(6,13,26,0.7);
+      box-shadow: 0 26px 80px rgba(0,0,0,0.34), inset 0 0 0 1px rgba(255,255,255,0.05);
+      isolation: isolate;
+    }
+    .page-header .page-header-title,
+    .page-header .page-header-sub {
+      max-width: 620px;
+    }
+    .about-hero-showcase::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 3;
+      background:
+        linear-gradient(90deg, rgba(6,13,26,0.12), transparent 35%, rgba(34,211,238,0.12)),
+        repeating-linear-gradient(90deg, rgba(255,255,255,0.04) 0 1px, transparent 1px 58px);
+      pointer-events: none;
+    }
+    .about-hero-showcase::after {
+      content: "";
+      position: absolute;
+      top: -20%;
+      bottom: -20%;
+      left: -32%;
+      width: 28%;
+      z-index: 4;
+      background: linear-gradient(110deg, transparent, rgba(255,255,255,0.25), transparent);
+      animation: aboutFactoryScan 4.8s ease-in-out infinite;
+      pointer-events: none;
+    }
+    .about-hero-slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      animation: aboutFactoryCarousel 16s ease-in-out infinite;
+    }
+    .about-hero-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(1.04) contrast(1.04) brightness(0.82);
+      transform: scale(1.04);
+      animation: aboutFactoryZoom 16s ease-in-out infinite;
+    }
+    .about-hero-slide-2 { animation-delay: 4s; }
+    .about-hero-slide-3 { animation-delay: 8s; }
+    .about-hero-slide-4 { animation-delay: 12s; }
+    .about-hero-slide-2 img { animation-delay: 4s; }
+    .about-hero-slide-3 img { animation-delay: 8s; }
+    .about-hero-slide-4 img { animation-delay: 12s; }
+    .about-hero-panel {
+      position: absolute;
+      left: 18px;
+      bottom: 16px;
+      z-index: 5;
+      display: grid;
+      gap: 3px;
+      padding: 10px 12px;
+      border-radius: 10px;
+      border: 1px solid rgba(34,211,238,0.22);
+      background: rgba(6,13,26,0.68);
+      backdrop-filter: blur(8px);
+    }
+    .about-hero-panel span {
+      font-family: var(--font-d);
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ice);
+      font-weight: 800;
+    }
+    .about-hero-panel strong {
+      color: var(--white);
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+    @keyframes aboutFactoryCarousel {
+      0%, 100% { opacity: 0; }
+      4%, 24% { opacity: 1; }
+      30% { opacity: 0; }
+    }
+    @keyframes aboutFactoryZoom {
+      0%, 100% { transform: scale(1.04); }
+      24% { transform: scale(1.1); }
+    }
+    @keyframes aboutFactoryScan {
+      0%, 24% { transform: translateX(0); opacity: 0; }
+      44% { opacity: 0.9; }
+      76%, 100% { transform: translateX(520%); opacity: 0; }
+    }
+    .about-story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+    .about-story-content h2 { font-family: var(--font-d); font-size: clamp(1.75rem,3vw,2.5rem); color: var(--white); margin-bottom: 16px; }
+    .about-story-content p { color: var(--text-muted); line-height: 1.8; margin-bottom: 16px; }
+    .about-story-img { border-radius: 16px; overflow: hidden; background: var(--card); border: 1px solid var(--border); aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center; position: relative; }
+    .about-story-img-placeholder { color: var(--ice); opacity: 0.3; font-size: 64px; }
+
+    .about-stats { background: var(--card); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 64px 0; }
+    .about-stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; text-align: center; }
+    .about-stat-num { font-family: var(--font-d); font-size: 2.5rem; font-weight: 800; background: linear-gradient(135deg, var(--ice), var(--blue)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 6px; }
+    .about-stat-label { color: var(--text-muted); font-size: 0.875rem; }
+
+    .about-timeline { padding: 80px 0; }
+    .about-timeline h2 { font-family: var(--font-d); font-size: clamp(1.5rem,3vw,2rem); color: var(--white); margin-bottom: 48px; text-align: center; }
+    .timeline { position: relative; max-width: 720px; margin: 0 auto; }
+    .timeline::before { content: ''; position: absolute; left: 24px; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, var(--ice), transparent); }
+    .timeline-item { display: flex; gap: 32px; margin-bottom: 40px; position: relative; }
+    .timeline-dot { width: 48px; height: 48px; border-radius: 50%; background: var(--card); border: 2px solid var(--ice); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-family: var(--font-d); font-size: 0.75rem; font-weight: 700; color: var(--ice); z-index: 1; }
+    .timeline-content { padding-top: 8px; }
+    .timeline-content h3 { color: var(--white); font-size: 1rem; font-weight: 600; margin-bottom: 6px; }
+    .timeline-content p { color: var(--text-muted); font-size: 0.875rem; line-height: 1.7; }
+
+    .about-certs { padding: 80px 0; background: var(--card); border-top: 1px solid var(--border); }
+    .about-certs h2 { font-family: var(--font-d); font-size: clamp(1.5rem,3vw,2rem); color: var(--white); margin-bottom: 12px; text-align: center; }
+    .about-certs-sub { color: var(--text-muted); text-align: center; margin-bottom: 48px; }
+    .certs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .cert-card { background: var(--bg); border: 1px solid var(--border); border-radius: 12px; padding: 32px 24px; text-align: center; transition: border-color 0.3s, transform 0.3s; }
+    .cert-card:hover { border-color: var(--ice); transform: translateY(-4px); }
+    .cert-card-icon { font-size: 40px; margin-bottom: 12px; }
+    .cert-card-name { font-family: var(--font-d); font-size: 1.125rem; color: var(--ice); margin-bottom: 8px; }
+    .cert-card-desc { color: var(--text-muted); font-size: 0.875rem; line-height: 1.6; }
+
+    .about-capabilities { padding: 80px 0; }
+    .about-capabilities h2 { font-family: var(--font-d); font-size: clamp(1.5rem,3vw,2rem); color: var(--white); margin-bottom: 48px; text-align: center; }
+    .cap-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    .cap-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 24px 20px; transition: border-color 0.3s; }
+    .cap-card:hover { border-color: var(--ice-dim); }
+    .cap-card-icon { font-size: 28px; margin-bottom: 12px; }
+    .cap-card-name { color: var(--white); font-weight: 600; margin-bottom: 6px; font-size: 0.9375rem; }
+    .cap-card-desc { color: var(--text-muted); font-size: 0.8125rem; line-height: 1.6; }
+
+    .about-team { padding: 80px 0; background: var(--card); border-top: 1px solid var(--border); }
+    .about-team h2 { font-family: var(--font-d); font-size: clamp(1.5rem,3vw,2rem); color: var(--white); margin-bottom: 48px; text-align: center; }
+    .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .team-card { background: var(--bg); border: 1px solid var(--border); border-radius: 12px; padding: 32px 24px; text-align: center; }
+    .team-avatar { width: 72px; height: 72px; border-radius: 50%; background: linear-gradient(135deg, var(--ice), var(--blue)); display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; font-family: var(--font-d); font-size: 1.5rem; color: var(--navy); font-weight: 800; }
+    .team-name { color: var(--white); font-weight: 600; margin-bottom: 4px; }
+    .team-role { color: var(--ice); font-size: 0.875rem; margin-bottom: 12px; }
+    .team-bio { color: var(--text-muted); font-size: 0.8125rem; line-height: 1.6; }
+
+    .about-cta { padding: 80px 0; text-align: center; }
+    .about-cta h2 { font-family: var(--font-d); font-size: clamp(1.5rem,3vw,2.25rem); color: var(--white); margin-bottom: 16px; }
+    .about-cta p { color: var(--text-muted); margin-bottom: 32px; max-width: 500px; margin-left: auto; margin-right: auto; }
+    .about-cta-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+    @media (max-width: 768px) {
+      .about-hero-showcase { display: none; }
+      .about-story-grid, .certs-grid, .cap-grid, .team-grid { grid-template-columns: 1fr; }
+      .about-stats-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══ NAVIGATION ══════════════════════════════ -->
+<nav class="site-nav" role="navigation" aria-label="Main navigation">
+  <div class="cw nav-inner">
+    <a href="index.html" class="nav-logo" aria-label="Mockingjay Tech Home">
+      <div class="nav-logo-icon">M</div>
+      <div class="nav-logo-text">
+        <span class="nav-logo-name">Mockingjay Tech</span>
+        <span class="nav-logo-tag">Fan Manufacturer</span>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="category.html" class="nav-link">Products</a>      <a href="oem.html" class="nav-link">OEM / ODM</a>
+      <a href="about.html" class="nav-link active">About</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+      <a href="contact.html" class="nav-cta">Get a Quote</a>
+    </div>
+    <button class="nav-hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<nav class="nav-mobile" role="navigation" aria-label="Mobile navigation">
+  <a href="index.html">Home</a>
+  <a href="category.html">Products</a>  <a href="oem.html">OEM / ODM</a>
+  <a href="about.html">About Us</a>
+  <a href="contact.html">Contact</a>
+  <a href="contact.html" class="nav-cta">Get a Quote →</a>
+</nav>
+
+<!-- ══ PAGE HEADER ═════════════════════════════ -->
+<section class="page-header">
+  <div class="page-header-orb-1"></div>
+  <div class="page-header-orb-2"></div>
+  <div class="cw page-header-inner">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Home</a>
+      <span class="breadcrumb-sep">›</span>
+      <span>About Us</span>
+    </nav>
+    <h1 class="page-header-title">About Mockingjay Tech</h1>
+    <div class="about-hero-showcase" aria-hidden="true">
+      <div class="about-hero-slide about-hero-slide-1">
+        <img src="https://images.pexels.com/photos/19233057/pexels-photo-19233057.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="">
+      </div>
+      <div class="about-hero-slide about-hero-slide-2">
+        <img src="https://images.pexels.com/photos/19319639/pexels-photo-19319639.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="">
+      </div>
+      <div class="about-hero-slide about-hero-slide-3">
+        <img src="https://images.pexels.com/photos/3862129/pexels-photo-3862129.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="">
+      </div>
+      <div class="about-hero-slide about-hero-slide-4">
+        <img src="https://images.pexels.com/photos/34207359/pexels-photo-34207359.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="">
+      </div>
+      <div class="about-hero-panel">
+        <span>Smart Factory</span>
+        <strong>Automation / QC / Scale</strong>
+      </div>
+    </div>
+    <p class="page-header-sub">10+ years manufacturing excellence from Shenzhen's heart — building the world's most innovative portable fans.</p>
+  </div>
+</section>
+
+<!-- ══ COMPANY STORY ════════════════════════════ -->
+<section class="about-story">
+  <div class="cw">
+    <div class="about-story-grid fade-up">
+      <div class="about-story-content">
+        <h2>A Factory Built on Innovation</h2>
+        <p>Founded in 2015 in Longhua, Shenzhen, Mockingjay Tech set out with a single ambition: to build the most advanced portable fan that buyers around the world could trust. Today, we're a team of 300+ engineers, designers, and manufacturing specialists operating from a 4,000㎡ state-of-the-art facility.</p>
+        <p>What started as a small R&D workshop has grown into a full-stack manufacturing operation — from our in-house mold studio and precision motor assembly line to our 6-layer quality control process and global logistics team.</p>
+        <p>Our flagship product, the JF168 with 199 adjustable speed levels and a 9000mAh battery, represents everything we believe about portable cooling: intelligent control, long-lasting power, and beautiful design in your hand.</p>
+      </div>
+      <div class="about-story-img">
+        <div class="about-story-img-placeholder">🏭</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ KEY STATS ════════════════════════════════ -->
+<section class="about-stats">
+  <div class="cw">
+    <div class="about-stats-grid">
+      <div class="fade-up">
+        <div class="about-stat-num">2015</div>
+        <div class="about-stat-label">Founded</div>
+      </div>
+      <div class="fade-up">
+        <div class="about-stat-num">300+</div>
+        <div class="about-stat-label">Employees</div>
+      </div>
+      <div class="fade-up">
+        <div class="about-stat-num">4,000㎡</div>
+        <div class="about-stat-label">Factory Area</div>
+      </div>
+      <div class="fade-up">
+        <div class="about-stat-num">30M+</div>
+        <div class="about-stat-label">Units/Year Capacity</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ TIMELINE ══════════════════════════════════ -->
+<section class="about-timeline">
+  <div class="cw">
+    <h2 class="fade-up">Our Journey</h2>
+    <div class="timeline">
+      <div class="timeline-item fade-up">
+        <div class="timeline-dot">2015</div>
+        <div class="timeline-content">
+          <h3>Company Founded</h3>
+          <p>Mockingjay Tech established in Longhua, Shenzhen. Initial team of 30 engineers focused on portable fan R&D and mold development.</p>
+        </div>
+      </div>
+      <div class="timeline-item fade-up">
+        <div class="timeline-dot">2017</div>
+        <div class="timeline-content">
+          <h3>CE Certification Achieved</h3>
+          <p>Obtained CE certification for the European market, opening doors to wholesale distributors across the EU and UK.</p>
+        </div>
+      </div>
+      <div class="timeline-item fade-up">
+        <div class="timeline-dot">2019</div>
+        <div class="timeline-content">
+          <h3>Factory Expansion</h3>
+          <p>Moved to our current 4,000㎡ facility. Added in-house mold workshop and expanded production capacity to 10M units/year.</p>
+        </div>
+      </div>
+      <div class="timeline-item fade-up">
+        <div class="timeline-dot">2021</div>
+        <div class="timeline-content">
+          <h3>OEM/ODM Division Launch</h3>
+          <p>Launched a dedicated OEM/ODM division to serve brand owners and private label importers. Minimum order 500 pcs with full customization.</p>
+        </div>
+      </div>
+      <div class="timeline-item fade-up">
+        <div class="timeline-dot">2023</div>
+        <div class="timeline-content">
+          <h3>JF168 — 199-Speed Innovation</h3>
+          <p>Released the JF168 with breakthrough 199 adjustable speed levels and 9000mAh battery — instantly becoming our bestselling export product.</p>
+        </div>
+      </div>
+      <div class="timeline-item fade-up">
+        <div class="timeline-dot">2025</div>
+        <div class="timeline-content">
+          <h3>30M Annual Capacity</h3>
+          <p>Reached 30 million units/year production capacity. Serving 50+ countries across e-commerce, retail, and private label markets.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CERTIFICATIONS ═══════════════════════════ -->
+<section class="about-certs">
+  <div class="cw">
+    <h2 class="fade-up">Certifications & Compliance</h2>
+    <p class="about-certs-sub fade-up">All products pass rigorous quality and safety testing before export.</p>
+    <div class="certs-grid">
+      <div class="cert-card fade-up">
+        <div class="cert-card-icon">🇪🇺</div>
+        <div class="cert-card-name">CE Certification</div>
+        <div class="cert-card-desc">All products meet EU safety, health, and environmental standards for market entry in Europe and beyond.</div>
+      </div>
+      <div class="cert-card fade-up">
+        <div class="cert-card-icon">🔋</div>
+        <div class="cert-card-name">Battery Safety</div>
+        <div class="cert-card-desc">Lithium battery cells tested to UN 38.3 standard for safe international shipping via air and sea freight.</div>
+      </div>
+      <div class="cert-card fade-up">
+        <div class="cert-card-icon">✅</div>
+        <div class="cert-card-name">Quality Control</div>
+        <div class="cert-card-desc">6-stage in-line QC process: incoming material inspection, production sampling, pre-shipment inspection, and full-batch testing.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CAPABILITIES ══════════════════════════════ -->
+<section class="about-capabilities">
+  <div class="cw">
+    <h2 class="fade-up">Factory Capabilities</h2>
+    <div class="cap-grid">
+      <div class="cap-card fade-up">
+        <div class="cap-card-icon">🔧</div>
+        <div class="cap-card-name">In-House Mold Making</div>
+        <div class="cap-card-desc">Own mold shop with CNC machining — rapid tooling for new product development. 30-day sample turnaround.</div>
+      </div>
+      <div class="cap-card fade-up">
+        <div class="cap-card-icon">💡</div>
+        <div class="cap-card-name">R&D Design</div>
+        <div class="cap-card-desc">In-house industrial designers and electronics engineers. From concept to working prototype in 15 days.</div>
+      </div>
+      <div class="cap-card fade-up">
+        <div class="cap-card-icon">🏭</div>
+        <div class="cap-card-name">Mass Production</div>
+        <div class="cap-card-desc">Automated assembly lines with 30M unit/year capacity. Stable lead times of 15-25 days for standard orders.</div>
+      </div>
+      <div class="cap-card fade-up">
+        <div class="cap-card-icon">📦</div>
+        <div class="cap-card-name">Custom Packaging</div>
+        <div class="cap-card-desc">Full packaging design service — retail boxes, hang tags, color printing, multi-language inserts. Your brand, our factory.</div>
+      </div>
+      <div class="cap-card fade-up">
+        <div class="cap-card-icon">🎨</div>
+        <div class="cap-card-name">Color Customization</div>
+        <div class="cap-card-desc">Pantone color matching for housing and accessories. Standard stock in 5 colors, custom mix per order.</div>
+      </div>
+      <div class="cap-card fade-up">
+        <div class="cap-card-icon">🚀</div>
+        <div class="cap-card-name">Fast Sampling</div>
+        <div class="cap-card-desc">Standard product samples ready in 3-5 days. Custom sample with modifications in 10-15 days.</div>
+      </div>
+      <div class="cap-card fade-up">
+        <div class="cap-card-icon">📉</div>
+        <div class="cap-card-name">Small Order MOQ</div>
+        <div class="cap-card-desc">Minimum order as low as 500 units for standard models. Lower MOQ available for platform sellers.</div>
+      </div>
+      <div class="cap-card fade-up">
+        <div class="cap-card-icon">🛠️</div>
+        <div class="cap-card-name">After-Sales Support</div>
+        <div class="cap-card-desc">12-month warranty on all products. Dedicated after-sales coordinator for every major account.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ TEAM ══════════════════════════════════════ -->
+<section class="about-team">
+  <div class="cw">
+    <h2 class="fade-up">Meet the Team</h2>
+    <div class="team-grid">
+      <div class="team-card fade-up">
+        <div class="team-avatar">S</div>
+        <div class="team-name">Sam Li</div>
+        <div class="team-role">Sales Manager</div>
+        <div class="team-bio">10+ years in B2B export sales. Fluent English, expert in US, EU, and AU market requirements. Your primary contact for all inquiries.</div>
+      </div>
+      <div class="team-card fade-up">
+        <div class="team-avatar">R</div>
+        <div class="team-name">Rachel Chen</div>
+        <div class="team-role">OEM Project Manager</div>
+        <div class="team-bio">Manages all OEM/ODM custom orders from first design discussion to final delivery. Ensures your specifications are met at every stage.</div>
+      </div>
+      <div class="team-card fade-up">
+        <div class="team-avatar">W</div>
+        <div class="team-name">Wilson Zhang</div>
+        <div class="team-role">R&D Director</div>
+        <div class="team-bio">Leads our 20-person R&D team. Inventor behind the JF168's 199-speed motor control technology. 15 patents filed.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CTA ═══════════════════════════════════════ -->
+<section class="about-cta fade-up">
+  <div class="cw">
+    <h2>Ready to Work with Us?</h2>
+    <p>Whether you're a first-time buyer or a global brand, we have a solution sized for your business.</p>
+    <div class="about-cta-btns">
+      <a href="contact.html" class="btn-primary btn-lg">Send an Inquiry</a>
+      <a href="category.html" class="btn-outline btn-lg">Browse Products</a>
+      <a href="https://wa.me/13900000000" target="_blank" rel="noopener" class="btn-whatsapp btn-lg">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp Us
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══════════════════════════════════ -->
+<footer class="site-footer">
+  <div class="cw footer-inner">
+    <div class="footer-brand">
+      <div class="footer-logo">
+        <div class="nav-logo-icon">M</div>
+        <span>Mockingjay Tech</span>
+      </div>
+      <p class="footer-tagline">Shenzhen's most innovative portable fan manufacturer. Factory direct with OEM/ODM capabilities.</p>
+      <div class="footer-certs">
+        <span class="cert-badge">CE Certified</span>
+        <span class="cert-badge">ISO Factory</span>
+        <span class="cert-badge">10+ Years</span>
+      </div>
+    </div>
+    <div class="footer-links">
+      <div class="footer-col">
+        <h4>Products</h4>        <a href="category.html?type=HANDHELD&name=Handheld+Fans">Handheld Fans</a>
+        <a href="category.html?type=POWERBANK&name=Power+Bank+Fans">Power Bank Fans</a>
+        <a href="category.html">All Products</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="about.html">About Us</a>
+        <a href="oem.html">OEM / ODM</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="mailto:jack3huang9@gmail.com">jack3huang9@gmail.com</a>
+        <a href="tel:13900000000">13900000000</a>
+        <a href="https://wa.me/13900000000" target="_blank" rel="noopener">WhatsApp Us</a>
+        <p class="footer-addr">Longhua, Shenzhen, China</p>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="cw">
+      <span>© 2026 Mockingjay Tech Shenzhen Co., Ltd. All rights reserved.</span>
+      <span>Factory Direct · CE Certified · OEM/ODM Available</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/data.js?v=20260601"></script>
+<script src="assets/js/script.js?v=20260601"></script>
+</body>
+</html>

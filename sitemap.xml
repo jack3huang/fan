@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <url>
+    <loc>https://www.mockingjaytech.com/</loc>
+    <lastmod>2026-05-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://www.mockingjaytech.com/oem.html</loc>
+    <lastmod>2026-05-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://www.mockingjaytech.com/about.html</loc>
+    <lastmod>2026-05-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+  <url>
+    <loc>https://www.mockingjaytech.com/contact.html</loc>
+    <lastmod>2026-05-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://www.mockingjaytech.com/category.html</loc>
+    <lastmod>2026-05-31</lastmod>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.mockingjaytech.com/category.html?type=COOLING&amp;name=Cooling%20Fans</loc>
+    <lastmod>2026-05-31</lastmod>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://www.mockingjaytech.com/category.html?type=HANDHELD&amp;name=Handheld%20Fans</loc>
+    <lastmod>2026-05-31</lastmod>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://www.mockingjaytech.com/category.html?type=POWERBANK&amp;name=Power%20Bank%20Fans</loc>
+    <lastmod>2026-05-31</lastmod>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://www.mockingjaytech.com/product.html?sku=JF168</loc>
+    <lastmod>2026-05-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.mockingjaytech.com/product.html?sku=CF001</loc>
+    <lastmod>2026-05-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.mockingjaytech.com/product.html?sku=CF003</loc>
+    <lastmod>2026-05-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.mockingjaytech.com/product.html?sku=JH002</loc>
+    <lastmod>2026-05-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.mockingjaytech.com/product.html?sku=JH005</loc>
+    <lastmod>2026-05-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.mockingjaytech.com/product.html?sku=PBF001</loc>
+    <lastmod>2026-05-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+</urlset>

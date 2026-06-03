@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Panel | Mockingjay Tech</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230A1628'/><text y='.9em' font-size='80' x='10'>⚙️</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css?v=20260601">
+  <link rel="stylesheet" href="assets/css/admin.css?v=20260601">
+</head>
+<body class="admin-body">
+
+<!-- ══ AUTH OVERLAY ════════════════════════════ -->
+<div id="auth-overlay" class="auth-overlay" style="display:none">
+  <div class="auth-box">
+    <div class="auth-logo">
+      <div class="nav-logo-icon">M</div>
+      <div>
+        <div class="auth-logo-name">Mockingjay Tech</div>
+        <div class="auth-logo-sub">Admin Panel</div>
+      </div>
+    </div>
+
+    <!-- Setup (first time) -->
+    <div id="auth-setup" style="display:none">
+      <h2 class="auth-title">设置管理密码</h2>
+      <p class="auth-desc">首次使用，请设置一个登录密码。密码加密保存在本浏览器中。</p>
+      <div class="form-group">
+        <label class="form-label">密码</label>
+        <input class="form-input" type="password" id="setup-pass" placeholder="至少 6 位" autocomplete="new-password">
+      </div>
+      <div class="form-group">
+        <label class="form-label">确认密码</label>
+        <input class="form-input" type="password" id="setup-pass2" placeholder="再输一次" autocomplete="new-password">
+      </div>
+      <div id="auth-error" class="auth-error" style="display:none"></div>
+      <button class="btn-primary" style="width:100%;margin-top:8px;justify-content:center" onclick="MJ_Auth.submitSetup()">设置密码并进入</button>
+    </div>
+
+    <!-- Login -->
+    <div id="auth-login" style="display:none">
+      <h2 class="auth-title">登录后台</h2>
+      <p class="auth-desc">请输入管理密码继续。</p>
+      <div class="form-group">
+        <label class="form-label">密码</label>
+        <input class="form-input" type="password" id="login-pass" placeholder="管理密码" autocomplete="current-password">
+      </div>
+      <div id="auth-error" class="auth-error" style="display:none"></div>
+      <button class="btn-primary" style="width:100%;margin-top:8px;justify-content:center" onclick="MJ_Auth.submitLogin()">进入后台</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══ ADMIN LAYOUT ═════════════════════════════ -->
+<div class="admin-layout">
+
+  <!-- ─── Sidebar ─── -->
+  <aside class="admin-sidebar" id="admin-sidebar">
+    <div class="admin-sidebar-header">
+      <div class="admin-logo">
+        <div class="nav-logo-icon">M</div>
+        <div>
+          <div style="color:var(--white);font-weight:700;font-size:0.9375rem">Admin Panel</div>
+          <div style="color:var(--text-muted);font-size:0.75rem">Mockingjay Tech</div>
+        </div>
+      </div>
+    </div>
+
+    <nav class="admin-nav">
+      <a href="#" class="admin-nav-item active" data-section="dashboard">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+        Dashboard
+      </a>
+      <a href="#" class="admin-nav-item" data-section="products">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+        Products
+      </a>
+      <a href="#" class="admin-nav-item" data-section="categories">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+        Categories
+      </a>
+      <a href="#" class="admin-nav-item" data-section="media">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        Media
+      </a>
+      <a href="#" class="admin-nav-item" data-section="export">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Export Data
+      </a>
+    </nav>
+
+    <div class="admin-sidebar-footer">
+      <a href="index.html" target="_blank" class="admin-view-site">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        查看网站
+      </a>
+      <button class="admin-view-site" style="background:none;border:none;cursor:pointer;width:100%;text-align:left" onclick="MJ_Auth.changePassword()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+        修改密码
+      </button>
+    </div>
+  </aside>
+
+  <!-- ─── Main ─── -->
+  <main class="admin-main" id="admin-main">
+
+    <!-- ═══ DASHBOARD ════════════════════════════ -->
+    <section class="admin-section active" id="section-dashboard">
+      <div class="admin-section-header">
+        <h1>Dashboard</h1>
+        <p>Overview of your product catalog</p>
+      </div>
+
+      <div class="dashboard-stats" id="dashboard-stats">
+        <!-- Rendered by admin.js -->
+      </div>
+
+      <div class="dashboard-quick">
+        <h3>Quick Actions</h3>
+        <div class="quick-actions">
+          <button class="quick-action-btn" onclick="MJ_Admin.goSection('products'); MJ_Admin.openProductForm()">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            Add Product
+          </button>
+          <button class="quick-action-btn" onclick="MJ_Admin.goSection('categories'); MJ_Admin.openCategoryForm()">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            Add Category
+          </button>
+          <button class="quick-action-btn" onclick="MJ_Admin.goSection('export')">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Export data.js
+          </button>
+          <a href="index.html" target="_blank" class="quick-action-btn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            Preview Site
+          </a>
+        </div>
+      </div>
+
+      <div class="dashboard-recent">
+        <h3>Products at a Glance</h3>
+        <div id="dashboard-product-list" class="dashboard-product-list">
+          <!-- Rendered by admin.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ PRODUCTS ══════════════════════════════ -->
+    <section class="admin-section" id="section-products">
+      <div class="admin-section-header">
+        <div>
+          <h1>Products</h1>
+          <p>Manage your product catalog</p>
+        </div>
+        <button class="btn-primary" onclick="MJ_Admin.openProductForm()">+ Add Product</button>
+      </div>
+
+      <div class="admin-table-wrap">
+        <table class="admin-table" id="products-table">
+          <thead>
+            <tr>
+              <th>SKU</th>
+              <th>Name</th>
+              <th>Category</th>
+              <th>Price</th>
+              <th>Stock</th>
+              <th>Homepage Hero</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="products-tbody">
+            <!-- Rendered by admin.js -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ═══ CATEGORIES ════════════════════════════ -->
+    <section class="admin-section" id="section-categories">
+      <div class="admin-section-header">
+        <div>
+          <h1>Categories</h1>
+          <p>Manage product categories</p>
+        </div>
+        <button class="btn-primary" onclick="MJ_Admin.openCategoryForm()">+ Add Category</button>
+      </div>
+
+      <div class="admin-table-wrap">
+        <table class="admin-table" id="categories-table">
+          <thead>
+            <tr>
+              <th>Icon</th>
+              <th>Name</th>
+              <th>Type Code</th>
+              <th>Count</th>
+              <th>Color</th>
+              <th>Featured</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="categories-tbody">
+            <!-- Rendered by admin.js -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ═══ MEDIA ══════════════════════════════════ -->
+    <section class="admin-section" id="section-media">
+      <div class="admin-section-header">
+        <div>
+          <h1>Media Library</h1>
+          <p>Images and videos in your <code>/media</code> folder</p>
+        </div>
+      </div>
+
+      <div class="media-upload-zone" id="media-upload-zone">
+        <input type="file" id="media-file-input" multiple accept="image/*,video/*" style="display:none">
+        <div class="media-dropzone" onclick="document.getElementById('media-file-input').click()" id="media-dropzone">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+          <p>Click to upload or drag &amp; drop</p>
+          <p style="color:var(--text-muted);font-size:0.8125rem">Images (JPG, PNG, WebP) and Videos (MP4, WebM)</p>
+          <p style="color:var(--text-muted);font-size:0.75rem;margin-top:4px">Files will be saved to <code>/media/</code></p>
+        </div>
+      </div>
+
+      <div id="media-grid" class="media-grid">
+        <!-- Rendered by admin.js -->
+      </div>
+    </section>
+
+    <!-- ═══ EXPORT ═════════════════════════════════ -->
+    <section class="admin-section" id="section-export">
+      <div class="admin-section-header">
+        <h1>Export Data</h1>
+        <p>Download or copy your updated <code>data.js</code> file</p>
+      </div>
+
+      <div class="export-panel">
+        <div class="export-info">
+          <h3>如何保存数据</h3>
+          <p><strong>本地服务器模式</strong>（推荐）：运行 <code>node admin-server.js</code>，点击"保存 data.js"按钮，修改直接写入 <code>assets/js/data.js</code>，刷新页面即生效。</p>
+          <p style="margin-top:10px"><strong>离线模式</strong>：点击"下载 data.js"，用下载的文件替换项目中的 <code>assets/js/data.js</code>，然后重新部署。</p>
+          <p style="margin-top:10px;color:rgba(255,255,255,0.35);font-size:0.8125rem">所有改动实时保存在浏览器 localStorage，关闭页面不会丢失。</p>
+        </div>
+
+        <div class="export-actions">
+          <button class="btn-primary btn-lg" onclick="MJ_Admin.downloadDataJS()">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            下载 data.js
+          </button>
+          <button class="btn-outline" onclick="MJ_Admin.copyDataJS()">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+            Copy to Clipboard
+          </button>
+          <button class="btn-outline btn-danger" onclick="MJ_Admin.resetToDefault()">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 102.13-9.36L1 10"/></svg>
+            Reset to Default
+          </button>
+        </div>
+
+        <div class="export-preview">
+          <div class="export-preview-header">
+            <span>data.js Preview</span>
+            <button class="export-refresh-btn" onclick="MJ_Admin.refreshPreview()">Refresh</button>
+          </div>
+          <pre id="export-preview-code" class="export-code"></pre>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<!-- ══ PRODUCT MODAL ════════════════════════════ -->
+<div class="admin-modal" id="product-modal" role="dialog" aria-modal="true" aria-labelledby="product-modal-title">
+  <div class="admin-modal-backdrop" onclick="MJ_Admin.closeProductForm()"></div>
+  <div class="admin-modal-content admin-modal-large">
+    <div class="admin-modal-header">
+      <h2 id="product-modal-title">Add Product</h2>
+      <button class="admin-modal-close" onclick="MJ_Admin.closeProductForm()" aria-label="Close">✕</button>
+    </div>
+    <div class="admin-modal-body">
+      <form id="product-form" novalidate>
+        <input type="hidden" id="pf-edit-index" value="">
+
+        <div class="form-row-2">
+          <div class="form-group">
+            <label class="form-label">Product Name *</label>
+            <input class="form-input" id="pf-name" type="text" required placeholder="e.g. JF168 Cooling Fan">
+          </div>
+          <div class="form-group">
+            <label class="form-label">SKU *</label>
+            <input class="form-input" id="pf-sku" type="text" required placeholder="e.g. JF168">
+          </div>
+        </div>
+
+        <div class="form-row-2">
+          <div class="form-group">
+            <label class="form-label">Category</label>
+            <select class="form-input" id="pf-cat">
+              <!-- Populated by admin.js -->
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Type Code</label>
+            <select class="form-input" id="pf-type">
+              <!-- Populated by admin.js -->
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row-2">
+          <div class="form-group">
+            <label class="form-label">Price Display</label>
+            <input class="form-input" id="pf-price" type="text" placeholder="e.g. $12.50–$15.00 / pc">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Trade Note</label>
+            <input class="form-input" id="pf-trade" type="text" placeholder="e.g. Bulk Price Available">
+          </div>
+        </div>
+
+        <div class="form-row-2">
+          <div class="form-group">
+            <label class="form-label">Stock Status</label>
+            <select class="form-input" id="pf-stock">
+              <option value="in">In Stock</option>
+              <option value="low">Low Stock</option>
+              <option value="back">Backordered</option>
+            </select>
+          </div>
+          <div class="form-group form-group-toggle">
+            <label class="form-label">Homepage Hero Product</label>
+            <label class="toggle">
+              <input type="checkbox" id="pf-homepage-hero">
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Tags (comma separated)</label>
+          <input class="form-input" id="pf-tags" type="text" placeholder="e.g. 199 Speeds, 9000mAh, 12h Runtime">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Product Images (gallery, one media path per line)</label>
+          <textarea class="form-input form-textarea" id="pf-images" rows="4" placeholder="media/jf168-main.jpg&#10;media/jf168-detail-01.jpg"></textarea>
+          <div class="media-select-actions">
+            <button type="button" class="btn-add-item" onclick="MJ_Admin.openMediaPicker('product-images')">+ Select from Media</button>
+          </div>
+          <p class="form-help">These images drive product cards and the product detail gallery. Upload files in Media Library first, then select them here.</p>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Video Path</label>
+          <input class="form-input" id="pf-video" type="text" placeholder="media/jf168-demo.mp4">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Color Options (optional)</label>
+          <p class="form-help">Each color controls the color dot. The Image Path is optional; if filled, clicking that color on the product detail page switches to that color image.</p>
+          <div id="pf-colors-list" class="dynamic-list">
+            <!-- Rendered by admin.js -->
+          </div>
+          <button type="button" class="btn-add-item" onclick="MJ_Admin.addColorRow()">+ Add Color</button>
+        </div>
+
+        <hr class="form-divider">
+        <p class="form-section-label">Product Detail (for product page)</p>
+
+        <div class="form-group">
+          <label class="form-label">Description</label>
+          <textarea class="form-input form-textarea" id="pf-description" rows="3" placeholder="Full product description..."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Specifications (JSON)</label>
+          <textarea class="form-input form-textarea form-mono" id="pf-specs" rows="6" placeholder='{"Battery": "9000mAh", "Runtime": "Up to 12h"}'></textarea>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Key Features (one per line)</label>
+          <textarea class="form-input form-textarea" id="pf-features" rows="4" placeholder="199 adjustable speed levels&#10;USB-C fast charging"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Applications (one per line)</label>
+          <textarea class="form-input form-textarea" id="pf-applications" rows="3" placeholder="Office & Desk&#10;Outdoor Sports"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Customization Options (one per line)</label>
+          <textarea class="form-input form-textarea" id="pf-customization" rows="3" placeholder="Custom color (Pantone)&#10;Private label packaging"></textarea>
+        </div>
+
+        <div class="form-row-2">
+          <div class="form-group">
+            <label class="form-label">MOQ</label>
+            <input class="form-input" id="pf-moq" type="text" placeholder="e.g. 500 pcs">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Lead Time</label>
+            <input class="form-input" id="pf-leadtime" type="text" placeholder="e.g. 15-20 business days">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Package Info</label>
+          <textarea class="form-input form-textarea" id="pf-package" rows="3" placeholder="Retail box: 160×90×60mm&#10;Master carton: 50 pcs / 12kg"></textarea>
+        </div>
+
+      </form>
+    </div>
+    <div class="admin-modal-footer">
+      <button class="btn-outline" onclick="MJ_Admin.closeProductForm()">Cancel</button>
+      <button class="btn-primary" onclick="MJ_Admin.saveProduct()">Save Product</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══ CATEGORY MODAL ═══════════════════════════ -->
+<div class="admin-modal" id="category-modal" role="dialog" aria-modal="true" aria-labelledby="category-modal-title">
+  <div class="admin-modal-backdrop" onclick="MJ_Admin.closeCategoryForm()"></div>
+  <div class="admin-modal-content">
+    <div class="admin-modal-header">
+      <h2 id="category-modal-title">Add Category</h2>
+      <button class="admin-modal-close" onclick="MJ_Admin.closeCategoryForm()" aria-label="Close">✕</button>
+    </div>
+    <div class="admin-modal-body">
+      <form id="category-form" novalidate>
+        <input type="hidden" id="cf-edit-index" value="">
+
+        <div class="form-row-2">
+          <div class="form-group">
+            <label class="form-label">Category Name *</label>
+            <input class="form-input" id="cf-name" type="text" required placeholder="e.g. Cooling Fans">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Type Code *</label>
+            <input class="form-input" id="cf-type" type="text" required placeholder="e.g. COOLING" style="text-transform:uppercase">
+          </div>
+        </div>
+
+        <div class="form-row-2">
+          <div class="form-group">
+            <label class="form-label">Short Code</label>
+            <input class="form-input" id="cf-code" type="text" placeholder="e.g. CF">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Product Count Display</label>
+            <input class="form-input" id="cf-count" type="text" placeholder="e.g. 8 Products">
+          </div>
+        </div>
+
+        <div class="form-row-2">
+          <div class="form-group">
+            <label class="form-label">Icon (emoji or text)</label>
+            <input class="form-input" id="cf-icon" type="text" placeholder="e.g. ❄️">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Color (hex)</label>
+            <div style="display:flex;gap:8px;align-items:center">
+              <input class="form-input" id="cf-color" type="text" placeholder="#22D3EE" style="flex:1">
+              <input type="color" id="cf-color-picker" value="#22D3EE" style="width:40px;height:40px;border:none;background:none;cursor:pointer;border-radius:8px" oninput="document.getElementById('cf-color').value=this.value">
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Description</label>
+          <textarea class="form-input form-textarea" id="cf-description" rows="2" placeholder="Short category description for the homepage card"></textarea>
+        </div>
+
+        <div class="form-group form-group-toggle">
+          <label class="form-label">Featured Category</label>
+          <label class="toggle">
+            <input type="checkbox" id="cf-featured">
+            <span class="toggle-slider"></span>
+          </label>
+        </div>
+
+      </form>
+    </div>
+    <div class="admin-modal-footer">
+      <button class="btn-outline" onclick="MJ_Admin.closeCategoryForm()">Cancel</button>
+      <button class="btn-primary" onclick="MJ_Admin.saveCategory()">Save Category</button>
+    </div>
+  </div>
+</div>
+
+<!-- MEDIA PICKER MODAL -->
+<div class="admin-modal" id="media-picker-modal" role="dialog" aria-modal="true" aria-labelledby="media-picker-title">
+  <div class="admin-modal-backdrop" onclick="MJ_Admin.closeMediaPicker()"></div>
+  <div class="admin-modal-content admin-modal-large">
+    <div class="admin-modal-header">
+      <h2 id="media-picker-title">Select Media</h2>
+      <button class="admin-modal-close" onclick="MJ_Admin.closeMediaPicker()" aria-label="Close">✕</button>
+    </div>
+    <div class="admin-modal-body">
+      <p class="form-help">Choose an uploaded image from Media Library. New files should be uploaded in the Media section first.</p>
+      <div id="media-picker-grid" class="media-picker-grid"></div>
+    </div>
+    <div class="admin-modal-footer">
+      <button class="btn-primary" id="media-picker-add-btn" onclick="MJ_Admin.chooseSelectedMedia()" style="display:none">Add Selected</button>
+      <button class="btn-outline" onclick="MJ_Admin.closeMediaPicker()">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<!-- DELETE CONFIRM MODAL -->
+<div class="admin-modal" id="delete-modal" role="dialog" aria-modal="true">
+  <div class="admin-modal-backdrop" onclick="MJ_Admin.closeDeleteConfirm()"></div>
+  <div class="admin-modal-content admin-modal-small">
+    <div class="admin-modal-header">
+      <h2>Confirm Delete</h2>
+      <button class="admin-modal-close" onclick="MJ_Admin.closeDeleteConfirm()" aria-label="Close">✕</button>
+    </div>
+    <div class="admin-modal-body">
+      <p id="delete-confirm-msg" style="color:var(--text-muted)">Are you sure you want to delete this item?</p>
+    </div>
+    <div class="admin-modal-footer">
+      <button class="btn-outline" onclick="MJ_Admin.closeDeleteConfirm()">Cancel</button>
+      <button class="btn-primary btn-danger" id="delete-confirm-btn" onclick="MJ_Admin.confirmDelete()">Delete</button>
+    </div>
+  </div>
+</div>
+
+<script src="assets/js/data.js?v=20260602"></script>
+<script src="assets/js/admin.js?v=20260602"></script>
+</body>
+</html>

@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | Mockingjay Tech — Get a Quote</title>
+  <meta name="description" content="Contact Mockingjay Tech for wholesale pricing, OEM/ODM inquiries, and product samples. Reply within 24 hours. WhatsApp: 13900000000.">
+  <link rel="canonical" href="https://www.mockingjaytech.com/contact.html">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Contact Mockingjay Tech — Get a Quote">
+  <meta property="og:image" content="https://www.mockingjaytech.com/media/og-cover.jpg">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230A1628'/><text y='.9em' font-size='80' x='10'>🌀</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css?v=20260601">
+  <style>
+    .contact-layout { padding: 64px 0 80px; }
+    .page-header .page-header-title,
+    .page-header .page-header-sub {
+      max-width: 560px;
+    }
+    .page-header-inner > .contact-hero-showcase {
+      position: absolute;
+      z-index: 1;
+      top: 30px;
+      right: 0;
+      width: min(36vw, 430px);
+      height: 290px;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid rgba(34,211,238,0.18);
+      background: rgba(6,13,26,0.72);
+      box-shadow: 0 26px 80px rgba(0,0,0,0.34), inset 0 0 0 1px rgba(255,255,255,0.05);
+      isolation: isolate;
+    }
+    .contact-hero-showcase::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 3;
+      background:
+        linear-gradient(90deg, rgba(6,13,26,0.1), transparent 38%, rgba(34,211,238,0.1)),
+        radial-gradient(80% 70% at 80% 18%, rgba(255,255,255,0.08), transparent 64%);
+      pointer-events: none;
+    }
+    .contact-hero-showcase::after {
+      content: "";
+      position: absolute;
+      top: -24%;
+      bottom: -24%;
+      left: -30%;
+      width: 26%;
+      z-index: 4;
+      background: linear-gradient(110deg, transparent, rgba(255,255,255,0.22), transparent);
+      animation: contactHeroScan 5s ease-in-out infinite;
+      pointer-events: none;
+    }
+    .contact-hero-slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      animation: contactHeroCarousel 12s ease-in-out infinite;
+    }
+    .contact-hero-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      filter: saturate(1.04) contrast(1.04) brightness(0.86);
+      transform: scale(1.04);
+      animation: contactHeroZoom 12s ease-in-out infinite;
+    }
+    .contact-hero-slide-2 { animation-delay: 4s; }
+    .contact-hero-slide-3 { animation-delay: 8s; }
+    .contact-hero-slide-2 img { animation-delay: 4s; }
+    .contact-hero-slide-3 img { animation-delay: 8s; }
+    .contact-hero-panel {
+      position: absolute;
+      left: 18px;
+      bottom: 16px;
+      z-index: 5;
+      display: grid;
+      gap: 3px;
+      padding: 10px 12px;
+      border-radius: 10px;
+      border: 1px solid rgba(34,211,238,0.22);
+      background: rgba(6,13,26,0.68);
+      backdrop-filter: blur(8px);
+    }
+    .contact-hero-panel span {
+      font-family: var(--font-d);
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ice);
+      font-weight: 800;
+    }
+    .contact-hero-panel strong {
+      color: var(--white);
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+    @keyframes contactHeroCarousel {
+      0%, 100% { opacity: 0; }
+      5%, 29% { opacity: 1; }
+      36% { opacity: 0; }
+    }
+    @keyframes contactHeroZoom {
+      0%, 100% { transform: scale(1.04); }
+      29% { transform: scale(1.1); }
+    }
+    @keyframes contactHeroScan {
+      0%, 24% { transform: translateX(0); opacity: 0; }
+      44% { opacity: 0.86; }
+      76%, 100% { transform: translateX(520%); opacity: 0; }
+    }
+    .contact-grid { display: grid; grid-template-columns: 1fr 400px; gap: 64px; align-items: start; }
+
+    .contact-info h2 { font-family: var(--font-d); font-size: 1.75rem; color: var(--white); margin-bottom: 12px; }
+    .contact-info > p { color: var(--text-muted); line-height: 1.7; margin-bottom: 32px; }
+
+    .contact-channels { display: flex; flex-direction: column; gap: 16px; margin-bottom: 40px; }
+    .contact-channel { display: flex; gap: 16px; align-items: flex-start; background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; text-decoration: none; transition: border-color 0.3s, transform 0.25s; }
+    .contact-channel:hover { border-color: var(--ice); transform: translateX(4px); }
+    .contact-channel-icon { width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 20px; }
+    .contact-channel-icon.email { background: rgba(34,211,238,0.12); }
+    .contact-channel-icon.phone { background: rgba(59,130,246,0.12); }
+    .contact-channel-icon.wa { background: rgba(37,211,102,0.12); }
+    .contact-channel-label { color: var(--text-muted); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 4px; }
+    .contact-channel-value { color: var(--white); font-weight: 600; font-size: 0.9375rem; }
+    .contact-channel-sub { color: var(--text-muted); font-size: 0.8125rem; margin-top: 2px; }
+
+    .contact-person { background: linear-gradient(135deg, rgba(34,211,238,0.08), rgba(59,130,246,0.08)); border: 1px solid rgba(34,211,238,0.2); border-radius: 12px; padding: 24px; display: flex; gap: 16px; align-items: center; margin-bottom: 40px; }
+    .contact-person-avatar { width: 56px; height: 56px; border-radius: 50%; background: linear-gradient(135deg, var(--ice), var(--blue)); display: flex; align-items: center; justify-content: center; font-family: var(--font-d); font-size: 1.25rem; font-weight: 800; color: var(--navy); flex-shrink: 0; }
+    .contact-person-name { color: var(--white); font-weight: 600; }
+    .contact-person-role { color: var(--ice); font-size: 0.875rem; margin-bottom: 4px; }
+    .contact-person-note { color: var(--text-muted); font-size: 0.8125rem; }
+
+    .contact-address { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; }
+    .contact-address h4 { color: var(--text-muted); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; }
+    .contact-address p { color: var(--white); font-size: 0.9375rem; line-height: 1.6; }
+
+    /* Form panel */
+    .contact-form-panel { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 36px 32px; position: sticky; top: 100px; }
+    .contact-form-panel h3 { font-family: var(--font-d); font-size: 1.25rem; color: var(--white); margin-bottom: 4px; }
+    .contact-form-panel > p { color: var(--text-muted); font-size: 0.875rem; margin-bottom: 24px; }
+
+    /* FAQ */
+    .faq-section { padding: 80px 0; background: var(--card); border-top: 1px solid var(--border); }
+    .faq-section h2 { font-family: var(--font-d); font-size: clamp(1.5rem,3vw,2rem); color: var(--white); margin-bottom: 48px; text-align: center; }
+    .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .faq-item { background: var(--bg); border: 1px solid var(--border); border-radius: 12px; padding: 24px; }
+    .faq-q { color: var(--white); font-weight: 600; margin-bottom: 10px; font-size: 0.9375rem; }
+    .faq-a { color: var(--text-muted); font-size: 0.875rem; line-height: 1.7; }
+
+    @media (max-width: 1024px) { .contact-grid { grid-template-columns: 1fr; } .contact-form-panel { position: static; } }
+    @media (max-width: 900px) { .contact-hero-showcase { display: none; } }
+    @media (max-width: 640px) { .faq-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+<!-- ══ NAVIGATION ══════════════════════════════ -->
+<nav class="site-nav" role="navigation" aria-label="Main navigation">
+  <div class="cw nav-inner">
+    <a href="index.html" class="nav-logo" aria-label="Mockingjay Tech Home">
+      <div class="nav-logo-icon">M</div>
+      <div class="nav-logo-text">
+        <span class="nav-logo-name">Mockingjay Tech</span>
+        <span class="nav-logo-tag">Fan Manufacturer</span>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="category.html" class="nav-link">Products</a>      <a href="oem.html" class="nav-link">OEM / ODM</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="contact.html" class="nav-link active">Contact</a>
+      <a href="contact.html" class="nav-cta">Get a Quote</a>
+    </div>
+    <button class="nav-hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<nav class="nav-mobile" role="navigation" aria-label="Mobile navigation">
+  <a href="index.html">Home</a>
+  <a href="category.html">Products</a>  <a href="oem.html">OEM / ODM</a>
+  <a href="about.html">About Us</a>
+  <a href="contact.html">Contact</a>
+  <a href="contact.html" class="nav-cta">Get a Quote →</a>
+</nav>
+
+<!-- ══ PAGE HEADER ═════════════════════════════ -->
+<section class="page-header">
+  <div class="page-header-orb-1"></div>
+  <div class="page-header-orb-2"></div>
+  <div class="cw page-header-inner">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Home</a>
+      <span class="breadcrumb-sep">›</span>
+      <span>Contact</span>
+    </nav>
+    <h1 class="page-header-title">Get in Touch</h1>
+    <div class="contact-hero-showcase" aria-hidden="true">
+      <div class="contact-hero-slide contact-hero-slide-1">
+        <img src="https://images.pexels.com/photos/10041257/pexels-photo-10041257.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="">
+      </div>
+      <div class="contact-hero-slide contact-hero-slide-2">
+        <img src="https://images.pexels.com/photos/29811345/pexels-photo-29811345.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="">
+      </div>
+      <div class="contact-hero-slide contact-hero-slide-3">
+        <img src="https://images.pexels.com/photos/7888811/pexels-photo-7888811.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="">
+      </div>
+      <div class="contact-hero-panel">
+        <span>Trusted Support</span>
+        <strong>Fast reply / Clear quote / Reliable service</strong>
+      </div>
+    </div>
+    <p class="page-header-sub">Send your inquiry and receive a detailed quote within 24 hours.</p>
+  </div>
+</section>
+
+<!-- ══ CONTACT LAYOUT ═══════════════════════════ -->
+<section class="contact-layout">
+  <div class="cw">
+    <div class="contact-grid">
+
+      <!-- ─── Left: Info ─── -->
+      <div class="contact-info fade-up">
+        <h2>Let's Talk Business</h2>
+        <p>We work with wholesalers, Amazon sellers, retail chains, and brand owners worldwide. Send us your product requirements and quantity — we'll respond within 24 hours with pricing, lead time, and any available samples.</p>
+
+        <div class="contact-person">
+          <div class="contact-person-avatar">S</div>
+          <div>
+            <div class="contact-person-role">Your Direct Contact</div>
+            <div class="contact-person-name">Sam Li — Sales Manager</div>
+            <div class="contact-person-note">Replies within 24h · Fluent English · 10+ years export experience</div>
+          </div>
+        </div>
+
+        <div class="contact-channels">
+          <a href="mailto:jack3huang9@gmail.com" class="contact-channel">
+            <div class="contact-channel-icon email">✉️</div>
+            <div>
+              <div class="contact-channel-label">Email</div>
+              <div class="contact-channel-value">jack3huang9@gmail.com</div>
+              <div class="contact-channel-sub">Best for detailed inquiries & attachments</div>
+            </div>
+          </a>
+          <a href="tel:13900000000" class="contact-channel">
+            <div class="contact-channel-icon phone">📞</div>
+            <div>
+              <div class="contact-channel-label">Phone / WeChat</div>
+              <div class="contact-channel-value">13900000000</div>
+              <div class="contact-channel-sub">Monday–Saturday · 9am–6pm CST</div>
+            </div>
+          </a>
+          <a href="https://wa.me/13900000000" target="_blank" rel="noopener" class="contact-channel">
+            <div class="contact-channel-icon wa">💬</div>
+            <div>
+              <div class="contact-channel-label">WhatsApp</div>
+              <div class="contact-channel-value">13900000000</div>
+              <div class="contact-channel-sub">Fastest response · Send photos, specs, or voice notes</div>
+            </div>
+          </a>
+        </div>
+
+        <div class="contact-address">
+          <h4>Factory Address</h4>
+          <p>Building 5, Fulian Industrial Zone<br>Dalang, Longhua District<br>Shenzhen, Guangdong, China 518110</p>
+        </div>
+      </div>
+
+      <!-- ─── Right: Form ─── -->
+      <div class="contact-form-panel fade-up">
+        <h3>Send an Inquiry</h3>
+        <p>Fill in the form and we'll email you a quote.</p>
+
+        <form id="inquiry-form" action="https://formsubmit.co/ajax/jack3huang9@gmail.com" method="POST" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="name">Your Name *</label>
+              <input class="form-input" type="text" id="name" name="name" required placeholder="Full name">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="company">Company *</label>
+              <input class="form-input" type="text" id="company" name="company" required placeholder="Company name">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="email">Email Address *</label>
+            <input class="form-input" type="email" id="email" name="email" required placeholder="your@email.com">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="country">Country / Region</label>
+            <input class="form-input" type="text" id="country" name="country" placeholder="e.g. United States, Germany, Australia">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="product">Product of Interest</label>
+            <select class="form-input" id="product" name="product">
+              <option value="">— Select a product —</option>
+              <!-- Populated by script.js -->
+            </select>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="quantity">Order Quantity</label>
+              <input class="form-input" type="text" id="quantity" name="quantity" placeholder="e.g. 1000 pcs">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="type">Inquiry Type</label>
+              <select class="form-input" id="type" name="type">
+                <option value="price">Price & Quote</option>
+                <option value="sample">Sample Request</option>
+                <option value="oem">OEM / ODM</option>
+                <option value="general">General Inquiry</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="message">Message</label>
+            <textarea class="form-input form-textarea" id="message" name="message" rows="4" placeholder="Describe your requirements — product specs, target market, packaging needs, etc."></textarea>
+          </div>
+
+          <div class="form-success" style="display:none">
+            ✅ Message sent! We'll reply within 24 hours.
+          </div>
+          <div class="form-error-msg" style="display:none">
+            ❌ Failed to send. Please email us directly.
+          </div>
+
+          <button type="submit" class="form-submit btn-primary" style="width:100%">
+            <span>Send Inquiry</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          </button>
+
+          <p style="color:var(--text-muted);font-size:0.75rem;text-align:center;margin-top:12px">We respect your privacy. Your data is only used to respond to your inquiry.</p>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ FAQ ═══════════════════════════════════════ -->
+<section class="faq-section">
+  <div class="cw">
+    <h2 class="fade-up">Frequently Asked Questions</h2>
+    <div class="faq-grid">
+      <div class="faq-item fade-up">
+        <div class="faq-q">What is the minimum order quantity (MOQ)?</div>
+        <div class="faq-a">Standard MOQ is 500 units per model/color. For Amazon or small business buyers, we can sometimes accommodate 200–300 pcs. Contact us to discuss your specific situation.</div>
+      </div>
+      <div class="faq-item fade-up">
+        <div class="faq-q">How long does production take?</div>
+        <div class="faq-a">Standard models: 15–20 business days after deposit confirmed. Custom OEM orders with mold or packaging changes: 25–35 days. Sample orders: 3–5 days.</div>
+      </div>
+      <div class="faq-item fade-up">
+        <div class="faq-q">Can I get a sample before placing an order?</div>
+        <div class="faq-a">Yes. Standard samples are available at sample cost + shipping. Sample fee is refundable when you place a bulk order of 500+ pcs. Contact Sam for current sample pricing.</div>
+      </div>
+      <div class="faq-item fade-up">
+        <div class="faq-q">Do your products have CE certification?</div>
+        <div class="faq-a">Yes — all portable fans are CE certified for European Union market entry. We can provide certification documentation with your order. Other certifications available on request.</div>
+      </div>
+      <div class="faq-item fade-up">
+        <div class="faq-q">What customization options are available?</div>
+        <div class="faq-a">We offer: custom colors (Pantone matching), private label packaging, logo printing on product, custom motor speed/firmware, and full mold redesign for ODM orders. See our OEM/ODM page for details.</div>
+      </div>
+      <div class="faq-item fade-up">
+        <div class="faq-q">What payment terms do you accept?</div>
+        <div class="faq-a">Standard terms: 30% T/T deposit, 70% before shipment. For established partners: 30% deposit, 70% against B/L copy. L/C accepted for orders above $50,000 USD.</div>
+      </div>
+      <div class="faq-item fade-up">
+        <div class="faq-q">How do you ship orders?</div>
+        <div class="faq-a">FOB Shenzhen is standard. We can arrange DDP door-to-door delivery for most countries. We work with DHL, FedEx, UPS (small orders), and major freight forwarders for sea freight.</div>
+      </div>
+      <div class="faq-item fade-up">
+        <div class="faq-q">What warranty do products come with?</div>
+        <div class="faq-a">12 months warranty from ship date. Defective units below 2% are replaced at cost in the next order. We maintain QC records for each batch for 3 years.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══════════════════════════════════ -->
+<footer class="site-footer">
+  <div class="cw footer-inner">
+    <div class="footer-brand">
+      <div class="footer-logo">
+        <div class="nav-logo-icon">M</div>
+        <span>Mockingjay Tech</span>
+      </div>
+      <p class="footer-tagline">Shenzhen's most innovative portable fan manufacturer. Factory direct with OEM/ODM capabilities.</p>
+      <div class="footer-certs">
+        <span class="cert-badge">CE Certified</span>
+        <span class="cert-badge">ISO Factory</span>
+        <span class="cert-badge">10+ Years</span>
+      </div>
+    </div>
+    <div class="footer-links">
+      <div class="footer-col">
+        <h4>Products</h4>        <a href="category.html?type=HANDHELD&name=Handheld+Fans">Handheld Fans</a>
+        <a href="category.html?type=POWERBANK&name=Power+Bank+Fans">Power Bank Fans</a>
+        <a href="category.html">All Products</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="about.html">About Us</a>
+        <a href="oem.html">OEM / ODM</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="mailto:jack3huang9@gmail.com">jack3huang9@gmail.com</a>
+        <a href="tel:13900000000">13900000000</a>
+        <a href="https://wa.me/13900000000" target="_blank" rel="noopener">WhatsApp Us</a>
+        <p class="footer-addr">Longhua, Shenzhen, China</p>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="cw">
+      <span>© 2026 Mockingjay Tech Shenzhen Co., Ltd. All rights reserved.</span>
+      <span>Factory Direct · CE Certified · OEM/ODM Available</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/data.js?v=20260601"></script>
+<script src="assets/js/script.js?v=20260601"></script>
+</body>
+</html>
